@@ -1,4 +1,13 @@
+# React example
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Summary
+
+Wrote codes for learning below:
+
+* [React official Japanese tutorial](https://ja.reactjs.org/tutorial/tutorial.html#help-im-stuck)
+* Redux / Hooks
 
 ## Available Scripts
 
