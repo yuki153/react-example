@@ -1,0 +1,25 @@
+.game {
+  display: flex;
+  flex-direction: row;
+
+  &__info {
+      margin-left: 20px;
+  }
+
+  &__status {
+    margin-bottom: 10px;
+  }
+
+  &__histories {
+      font-size: 14px;
+  }
+
+  &__history {
+    margin-top: 8px;
+    padding: 2px 4px;
+    box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, .7);
+    + * {
+        margin-top: 4px;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import './../index.css';
+import { Board } from './../components/board';
+import styles from './../game.module.scss';
 
 const calculateWinner = squares => {
   const lines = [
@@ -21,55 +22,6 @@ const calculateWinner = squares => {
   return null;
 }
 
-/**
- * Functional Component は引数として props を渡される
- * function でも arrow 関数でも定義可能
- * @param {Object} props
- */
-const Square = props => {
-  return (
-    <button
-      className="square"
-      onClick={props.onClick}
-    >
-      {props.value}
-    </button>
-  );
-}
-
-class Board extends React.Component {
-  renderSquare(i) {
-    return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
-  
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -115,7 +67,7 @@ class Game extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li key={move}>
+        <li key={move} className={styles.game__history}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
@@ -127,18 +79,18 @@ class Game extends React.Component {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
     return (
-      <div className="game">
-        <div className="game-board">
+      <div className={styles.game}>
+        <div className={styles.game__board}>
           <Board
             // onClick={this.handleClick} 呼び出し先で this の値が変わるため Arrow 関数で wrap が必要
             onClick={(i) => this.handleClick(i)}
             squares={curSquares}
           />
         </div>
-        <div className="game-info">
-          <div className="status">{status}</div>
+        <div className={styles.game__info}>
+          <div className={styles.game__info}>{status}</div>
           {/* Vue と異なり配列の jsx を渡すだけで展開してくれる */}
-          <ol>{ moves }</ol>
+          <ol className={styles.game__histories}>{ moves }</ol>
         </div>
       </div>
     );
