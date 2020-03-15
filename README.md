@@ -9,6 +9,12 @@ Wrote codes for learning below:
 * [React official Japanese tutorial](https://ja.reactjs.org/tutorial/tutorial.html#help-im-stuck)
 * Router / Redux / Hooks
 
+## Reference documents
+
+* [How to use Sass and CSS Modules with create-react-app](https://blog.bitsrc.io/how-to-use-sass-and-css-modules-with-create-react-app-83fa8b805e5e)
+
+---
+
 ## Available Scripts
 
 In the project directory, you can run:
