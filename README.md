@@ -12,6 +12,7 @@ Wrote codes for learning below:
 ## Reference documents
 
 * [How to use Sass and CSS Modules with create-react-app](https://blog.bitsrc.io/how-to-use-sass-and-css-modules-with-create-react-app-83fa8b805e5e)
+* [Using the State Hook](https://en.reactjs.org/docs/hooks-state.html)
 
 ---
 
