@@ -1,0 +1,11 @@
+.works {
+    &__work {
+        + * {
+            margin-top: 40px;
+        }
+    }
+    &__title {
+        text-align: center;
+        margin: 0 0 20px;
+    }
+}
