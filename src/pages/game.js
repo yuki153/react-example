@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Board } from './../components/board';
-import styles from './../game.module.scss';
-const { useState } = React;
+import styles from './game.module.scss';
+import { rootContext } from './../index';
 
 const calculateWinner = squares => {
   const lines = [
@@ -24,6 +24,8 @@ const calculateWinner = squares => {
 }
 
 export const Game = () => {
+  const [ , setTitle ] = useContext(rootContext);
+  setTitle('Game');
   const [history, setHistory] = useState([{ squares: Array(9).fill(null) }]);
   const [xIsNext, setXIsNext] = useState(true);
   const [stepNumber, setStepNumber] = useState(0);
@@ -75,7 +77,7 @@ export const Game = () => {
         />
       </div>
       <div className={styles.game__info}>
-        <div className={styles.game__info}>{status}</div>
+        <div>{status}</div>
         <ol className={styles.game__histories}>{ moves }</ol>
       </div>
     </div>
