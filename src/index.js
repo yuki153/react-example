@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import Game from './pages/game';
+import { Game } from './pages/game';
 import Home from './pages/home';
 import Detail from './pages/detail';
 import './ress.css';
