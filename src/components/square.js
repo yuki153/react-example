@@ -6,7 +6,7 @@ import styles from './square.module.scss';
  * function でも arrow 関数でも定義可能
  * @param {Object} props
  */
-export const Square = props => {
+export const Square = React.memo(props => {
   return (
     <button
       className={styles.square}
@@ -15,4 +15,4 @@ export const Square = props => {
       {props.value}
     </button>
   );
-}
+});

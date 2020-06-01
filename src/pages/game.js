@@ -23,9 +23,18 @@ const calculateWinner = squares => {
   return null;
 }
 
-export const Game = () => {
-  const [ , setTitle ] = useContext(rootContext);
+export const Game = React.memo(() => {
+  const [ title, setTitle, setDummyState ] = useContext(rootContext);
+
+  // 親の状態が変更されるので、Game 関数は２回呼ばれてしまう。
   setTitle('Game');
+  
+  // 親が実際使用していない状態でも、変更があれば Game 関数は２回呼ばれる
+  // setDummyState(true);
+
+  console.log('Game rendering');
+  console.log(title);
+
   const [history, setHistory] = useState([{ squares: Array(9).fill(null) }]);
   const [xIsNext, setXIsNext] = useState(true);
   const [stepNumber, setStepNumber] = useState(0);
@@ -82,7 +91,7 @@ export const Game = () => {
       </div>
     </div>
   );
-}
+}, () => true);
 
 // class Game extends React.Component {
 //   constructor(props) {
