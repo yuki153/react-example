@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Wrote codes for learning below:
 
 * [React official Japanese tutorial](https://ja.reactjs.org/tutorial/tutorial.html#help-im-stuck)
-* Router / Hooks
+* Router / Hooks / Redux
 
 ## Reference documents
 
