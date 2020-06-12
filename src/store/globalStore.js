@@ -1,3 +1,5 @@
+import { actionTypes } from '../actions/appActions';
+
 export const store = {
   num: 0,
   firstPrint: 'Hello World',
@@ -6,12 +8,14 @@ export const store = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case 'increment':
+    case actionTypes.INCREMENT:
       return {...state, num: state.num + 1}
-    case 'set_print':
+    case actionTypes.SET_PRINT:
       return {...state, firstPrint: action.payload}
-    case 'test':
+    case actionTypes.TEST:
       return {...state, dummy: action.payload}
+      case actionTypes.TEST_THUNK:
+        return {...state, firstPrint: action.payload}
     default:
       return state;
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import { testThunk, actionTypes } from "../actions/appActions"
 
 const ReducTestChild = React.memo(() => {
   console.log('reduxTestChild rendering');
@@ -11,7 +12,7 @@ const ReducTestChild = React.memo(() => {
     <p>{num}</p>
     <button onClick={() => {
       dispatch({
-        type: 'test',
+        type: actionTypes.TEST,
         payload: Math.random().toString(32).substring(2),
       })}}>
       {/* 親と関係のない state 変更のテスト */}
@@ -31,16 +32,20 @@ export const ReduxTest1 = props => {
       <p>{firstPrint}</p>
       <button onClick={() => {
       dispatch({
-        type: 'set_print',
+        type: actionTypes.SET_PRINT,
         payload: 'Piyo!'
       })}}>
       change print button
       </button>
       <button onClick={() => {
       dispatch({
-        type: 'increment'
+        type: actionTypes.INCREMENT
       })}}>
       increment button
+      </button>
+      <button onClick={() => { dispatch(testThunk())} }>
+      {/* 親と関係のない state 変更のテスト */}
+      test redux-thunk
       </button>
       <ReducTestChild/>
     </div>
@@ -59,8 +64,8 @@ export const ReduxTest2 = props => {
     <p>{dummy}</p>
     <button onClick={() => {
       dispatch({
-        type: 'set_print',
-        print: 'hoge!',
+        type: actionTypes.SET_PRINT,
+        payload: 'hoge!',
       });
     }}>
       dispatch button

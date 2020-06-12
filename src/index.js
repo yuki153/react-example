@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { Game } from './pages/game';
 import { Works } from './pages/works';
 import { Home } from './pages/home';
 import { ReduxTest1, ReduxTest2 } from './pages/testRedux';
 import { store, reducer } from './store/globalStore';
+import thunk from 'redux-thunk';
 import './ress.css';
 import './index.scss';
 
 export const rootContext = React.createContext();
 const { useState } = React;
 
-const globalStore = createStore(reducer, store);
+const globalStore = createStore(reducer, store, applyMiddleware(thunk));
 
 /**
  * Context の state 変更が変更されると、その state の使用可否関係無しに子要素 (Context provider配下要素) が再度レンダリングされる。
