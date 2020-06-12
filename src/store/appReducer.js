@@ -1,6 +1,6 @@
 import { actionTypes } from '../actions/appActions';
 
-export const store = {
+export const state = {
   num: 0,
   firstPrint: 'Hello World',
   dummy: '', 

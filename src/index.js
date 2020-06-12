@@ -7,7 +7,7 @@ import { Game } from './pages/game';
 import { Works } from './pages/works';
 import { Home } from './pages/home';
 import { ReduxTest1, ReduxTest2 } from './pages/testRedux';
-import { store, reducer } from './store/globalStore';
+import { state, reducer } from './store/appReducer';
 import thunk from 'redux-thunk';
 import './ress.css';
 import './index.scss';
@@ -15,7 +15,7 @@ import './index.scss';
 export const rootContext = React.createContext();
 const { useState } = React;
 
-const globalStore = createStore(reducer, store, applyMiddleware(thunk));
+const appStore = createStore(reducer, state, applyMiddleware(thunk));
 
 /**
  * Context の state 変更が変更されると、その state の使用可否関係無しに子要素 (Context provider配下要素) が再度レンダリングされる。
@@ -37,7 +37,7 @@ const Pages = React.memo((props) => {
           <Route path='/works' component={Works}/>
         </rootContext.Provider>
 
-        <Provider store={globalStore}>
+        <Provider store={appStore}>
           <Route path='/redux-test1' component={ReduxTest1}/>
           <Route path='/redux-test2' component={ReduxTest2}/>
         </Provider>
